@@ -1,16 +1,38 @@
-## Hi there 👋
+💼 ¡Hola! Soy isa — Desarrollador Full Stack 💻🌐
 
-<!--
-**isa1227/isa1227** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+📍 Ubicación: medellin/antioquia.  
+📧 Contacto: isaperezherazo11@gmail.com  
+🚀 Disponible para proyectos freelance o full-time  
 
-Here are some ideas to get you started:
+---
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+👨‍💻 **Tecnologías que manejo:**
+
+🧠 Lógica & Backend:
+- ☕ **Java** + 💡 **POO (Programación Orientada a Objetos)**
+- 🐘 **Laravel** (PHP)
+- 🍃 **MongoDB**
+
+🌐 Frontend:
+- ⚛️ **React JS**
+- 🟨 **JavaScript (JS)**
+- 🎨 **CSS3**
+- 🧾 **HTML5**
+
+🧩 Full Stack Power 💥  
+💻💾 Desarrollo completo: desde interfaces frontend hasta la lógica de backend y bases de datos.
+
+---
+
+🔧 **Proyectos Destacados:**
+🎮 [Happy Gummies] – Web interactiva en html + php + css  
+🛒 [Tienda Online SanrioStar] – react + laravel + html + css
+📊 [bases de datos] – Mysql para análisis de datos  
+
+---
+
+🛠️ Siempre aprendiendo y creando.  
+📚 Apasionado por el código limpio, buenas prácticas y el diseño intuitivo.  
+
+🌟 ¡Hablemos! Estoy abierto a colaborar en ideas innovadoras o unirme a tu equipo.
+
