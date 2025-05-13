@@ -25,6 +25,7 @@
 ---
 
 🔧 **Proyectos Destacados:**
+
 🎮 [Happy Gummies] – Web interactiva en html + php + css  
 
 🛒 [Tienda Online SanrioStar] – react + laravel + html + css
