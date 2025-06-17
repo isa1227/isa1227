@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gestión de Datos con Excel</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <style>
+    body {
+      background-color: #000022;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2000' height='2000' viewBox='0 0 800 800'%3E%3Cg fill='none'%3E%3Cg stroke='%23026' stroke-width='17'%3E%3Cline x1='-8' y1='-8' x2='808' y2='808'/%3E%3Cline x1='-8' y1='792' x2='808' y2='1608'/%3E%3Cline x1='-8' y1='-808' x2='808' y2='8'/%3E%3C/g%3E%3Cg stroke='%23002163' stroke-width='16'%3E%3Cline x1='-8' y1='767' x2='808' y2='1583'/%3E%3Cline x1='-8' y1='17' x2='808' y2='833'/%3E%3Cline x1='-8' y1='-33' x2='808' y2='783'/%3E%3Cline x1='-8' y1='-783' x2='808' y2='33'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      background-attachment: fixed;
+    }
+  </style>
+</head>
+<body class="relative min-h-screen text-white">
+
+  <div class="flex items-center justify-center min-h-screen px-4">
+    <div class="bg-white bg-opacity-90 text-gray-900 p-8 rounded-xl w-full max-w-3xl shadow-lg z-10">
+      <h1 class="text-2xl font-bold text-center mb-6">Gestión de Datos</h1>
+
+      <!-- Formulario -->
+      <form id="formulario" class="space-y-3 mb-4">
+        <input id="nombre" type="text" placeholder="Nombre" required class="w-full p-2 border border-gray-300 rounded" />
+        <input id="edad" type="number" placeholder="Edad" required class="w-full p-2 border border-gray-300 rounded" />
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Guardar</button>
+      </form>
+
+      <!-- Subir Excel -->
+      <div class="mb-6">
+        <label class="block mb-1 font-semibold">Cargar archivo Excel:</label>
+        <input type="file" id="inputExcel" accept=".xlsx, .xls" class="w-full p-2 border border-gray-300 rounded" />
+      </div>
+
+      <!-- Tabla -->
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border">
+          <thead>
+            <tr class="text-gray-700 font-semibold bg-gray-100">
+              <th class="px-4 py-2 border">ID</th>
+              <th class="px-4 py-2 border">Nombre</th>
+              <th class="px-4 py-2 border">Edad</th>
+              <th class="px-4 py-2 border">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-body">
+            <!-- Filas dinámicas aquí -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const formulario = document.getElementById("formulario");
+    const tablaBody = document.getElementById("tabla-body");
+    const inputExcel = document.getElementById("inputExcel");
+
+    let datos = [];
+    let id = 1;
+
+    formulario.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const nombre = document.getElementById("nombre").value.trim();
+      const edad = parseInt(document.getElementById("edad").value.trim());
+      if (nombre && !isNaN(edad)) {
+        agregarRegistro(nombre, edad);
+        formulario.reset();
+      }
+    });
+
+    function agregarRegistro(nombre, edad) {
+      const nuevoDato = { id, nombre, edad };
+      datos.push(nuevoDato);
+      agregarFila(nuevoDato);
+      id++;
+    }
+
+    function agregarFila({ id, nombre, edad }) {
+      const fila = document.createElement("tr");
+      fila.classList.add("border");
+
+      fila.innerHTML = `
+        <td class="px-4 py-2 border">${id}</td>
+        <td class="px-4 py-2 border">${nombre}</td>
+        <td class="px-4 py-2 border">${edad}</td>
+        <td class="px-4 py-2 border">
+          <button onclick="eliminar(${id})" class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">Eliminar</button>
+        </td>
+      `;
+      tablaBody.appendChild(fila);
+    }
+
+    function eliminar(idEliminar) {
+      datos = datos.filter(d => d.id !== idEliminar);
+      tablaBody.innerHTML = "";
+      datos.forEach(agregarFila);
+    }
+
+    inputExcel.addEventListener("change", function (e) {
+      const archivo = e.target.files[0];
+      if (!archivo) return;
+
+      const lector = new FileReader();
+      lector.onload = function (e) {
+        const datosBinarios = e.target.result;
+        const libro = XLSX.read(datosBinarios, { type: "binary" });
+        const hoja = libro.Sheets[libro.SheetNames[0]];
+        const registros = XLSX.utils.sheet_to_json(hoja);
+
+        registros.forEach(reg => {
+          const nombre = reg.nombre || reg.Nombre || reg.NOMBRE;
+          const edad = parseInt(reg.edad || reg.Edad || reg.EDAD);
+          if (nombre && !isNaN(edad)) {
+            agregarRegistro(nombre, edad);
+          }
+        });
+      };
+      lector.readAsBinaryString(archivo);
+    });
+  </script>
+</body>
+</html>
