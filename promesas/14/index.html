@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cancelar Promesa con AbortController</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen p-6 flex items-center justify-center">
+
+  <div class="bg-white shadow-xl rounded-3xl p-12 w-full max-w-md text-center">
+    <h1 class="text-3xl font-extrabold mb-8 text-red-700">Cancelar Promesa<br>♡</h1>
+
+    <button
+      id="btnIniciar"
+      class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-8 rounded-full mb-4 transition-colors duration-300"
+    >
+      Iniciar Fetch
+    </button>
+
+    <button
+      id="btnCancelar"
+      class="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-3 px-8 rounded-full transition-colors duration-300"
+    >
+      Cancelar Fetch
+    </button>
+
+    <div id="estado" class="mt-6 text-lg text-gray-800 font-medium"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+Tokens válidos: "abc123", "token_valido", "sesion2025".
+Si el token es válido, muestra " Sesión activa".
+Si no, muestra " Sesión caducada o token inválido".

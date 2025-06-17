@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Esperar con Promesa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
+
+  <div class="bg-white shadow-xl rounded-3xl p-12 w-full max-w-lg text-center">
+    <h1 class="text-3xl font-extrabold mb-6 text-red-700">Esperar con Promesa<br>♡</h1>
+    
+    <label for="tiempo" class="block mb-3 font-semibold text-gray-700 text-left">Tiempo a esperar (ms):</label>
+    <input 
+      id="tiempo" 
+      type="number" 
+      value="2000" 
+      class="w-full mb-6 px-4 py-3 border border-red-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-red-500 text-lg"
+    />
+    
+    <button id="btnEsperar" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-8 rounded-full transition-colors duration-300">
+      Esperar
+    </button>
+
+    <div id="resultado" class="mt-8 text-gray-800 font-medium text-lg hidden"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

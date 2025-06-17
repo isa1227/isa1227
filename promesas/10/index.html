@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ejecutar Promesas en Secuencia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
+
+  <div class="bg-white shadow-xl rounded-3xl p-12 w-full max-w-md text-center">
+    <h1 class="text-3xl font-extrabold mb-8 text-red-700">Leer Archivos en Secuencia<br>♡</h1>
+
+    <button
+      id="btnLeerSecuencia"
+      class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-8 rounded-full mb-8 transition-colors duration-300"
+    >
+      Leer Archivos Secuencialmente
+    </button>
+
+    <pre
+      id="resultado"
+      class="text-left font-mono whitespace-pre-wrap text-gray-800 text-lg"
+    ></pre>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

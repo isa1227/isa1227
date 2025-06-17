@@ -1,0 +1,6 @@
+para probarlo:
+Productos validos: camisa, pantalon, zapatos
+Tarjeta: cualquier número de 16 dígitos (solo números).
+
+Se valida stock, luego pago, y muestra resultado.
+Muestra errores si no hay stock o tarjeta inválida.

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Enviar Formulario Simulado</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
+
+  <div class="bg-white shadow-xl rounded-3xl p-12 w-full max-w-md text-center">
+    <h1 class="text-3xl font-extrabold mb-8 text-red-700">Enviar Formulario Simulado<br>♡</h1>
+
+    <input
+      id="nombre"
+      type="text"
+      placeholder="Nombre"
+      class="w-full mb-6 px-5 py-3 border border-red-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-red-500 text-lg"
+    />
+
+    <input
+      id="email"
+      type="email"
+      placeholder="Correo electrónico"
+      class="w-full mb-6 px-5 py-3 border border-red-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-red-500 text-lg"
+    />
+
+    <textarea
+      id="mensaje"
+      placeholder="Mensaje"
+      rows="4"
+      class="w-full mb-6 px-5 py-3 border border-red-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-red-500 resize-none text-lg"
+    ></textarea>
+
+    <button
+      id="btnEnviar"
+      class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-8 rounded-full mb-6 transition-colors duration-300"
+    >
+      Enviar
+    </button>
+
+    <div
+      id="resultado"
+      class="text-lg font-medium mt-4 text-gray-800 hidden"
+    ></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
